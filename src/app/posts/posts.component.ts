@@ -10,10 +10,17 @@ import { PostService } from '../services/post.service';
 export class PostsComponent implements OnInit {
   posts: Post[] = []
   //dependency imported
-  constructor(private postService: PostService) { }
+  constructor(private postService: PostService) { } // --> called for the first time before ngoninit to initialize the class
 
-  ngOnInit(): void {
-    this.posts = this.postService.getPosts()
+  ngOnInit(): void { //--> called after constructor and after the first ngonchanges
+    this.postService.getPosts().subscribe(res => {
+      for (let index = 0; index < res.length; index++) {
+        const post = res[index];
+        post["votes"] = 1;
+      }
+
+      this.posts = res;
+    })
   }
 
   hidePost(post: Post): void {
