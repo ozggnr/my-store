@@ -1,5 +1,8 @@
 <div class="product">
-  <img class="product__image" [src]= "product.url" />
+  <a [routerLink]="['/products', product.id]">
+    <img [src]= "product.url" class="product__image" (click)="handleImage(product)"/>
+  </a>
+
   <h5>{{product.name}}</h5>
   <h5>{{product.price}}</h5>
 </div>
