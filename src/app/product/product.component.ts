@@ -8,7 +8,7 @@ import { Product } from '../models/Product';
 })
 export class ProductComponent implements OnInit {
   @Input() product: Product
-  @Output() paramId = new EventEmitter<number>()
+
   constructor() {
     this.product = {
       id: 1,
@@ -20,8 +20,5 @@ export class ProductComponent implements OnInit {
    }
 
   ngOnInit(): void {}
-  handleImage(product: Product) {
-    console.log(product)
-    this.paramId.emit(product.id)
-  }
+
 }

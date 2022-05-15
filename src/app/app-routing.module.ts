@@ -5,7 +5,7 @@ import { ProductsComponent } from './products/products.component';
 
 const routes: Routes = [
   { path: 'products', component: ProductsComponent },
-  { path: 'products/:id', component: ProductDetailComponent}
+  { path: 'products/:id', component: ProductDetailComponent }
 ];
 
 @NgModule({
