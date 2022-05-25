@@ -9,8 +9,8 @@ import { ProductService } from '../services/product.service';
   styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent implements OnInit {
-  // product: Product | undefined
-  id = 0
+  product: Product = new Product
+  id: Number = 0
   constructor (
     private route: ActivatedRoute,
     private productService: ProductService
@@ -22,8 +22,10 @@ export class ProductDetailComponent implements OnInit {
 
   getProductId(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
-      const selectedProductId = Number(params.get('id'))
-      this.id = selectedProductId
+      this.id = Number(params.get('id'))
+      this.productService.getProducts().subscribe(products => {
+        this.product = products.find(product => product.id === this.id) as Product
+      })
     })
   }
 }
