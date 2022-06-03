@@ -1,0 +1,18 @@
+<p>card works!</p>
+<div *ngIf="cardItemList.length === 0">
+	<div>No cart</div>
+</div>
+
+<div *ngFor="let cardItem of cardItemList" class="card-item">
+	<img [src]= "cardItem.product.url" class="card-item__image"/>
+	<h5>{{cardItem.product.name}}</h5>
+  	<form (ngSubmit)="handleForm(cardItem)">
+	<label for="productAmount">Amount</label>
+		<select [(ngModel)]="cardItem.quantity" (ngModelChange)="handleChangeQuantity($event)" name="selectedAmount">
+			<option *ngFor="let productAmount of quantity" [ngValue]="productAmount">{{productAmount}}</option>
+		</select>
+	</form>
+	<h5>{{cardItem.product.price}}</h5>
+</div>
+
+
