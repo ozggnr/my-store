@@ -7,18 +7,28 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductsComponent } from './products/products.component';
 import { ProductComponent } from './product/product.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component'
+import { FormsModule } from '@angular/forms';
+import { CardComponent } from './card/card.component';
+import { CardSuccessComponent } from './card-success/card-success.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { UserCardInfoComponent } from './user-card-info/user-card-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
     ProductComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    CardComponent,
+    CardSuccessComponent,
+    NavigationComponent,
+    UserCardInfoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+	FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
