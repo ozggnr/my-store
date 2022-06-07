@@ -1,1 +1,11 @@
-<p>product-detail works! {{product.name}}</p>
+<div>
+<img [src]= "product.url" class="card-item__image"/>
+	<h5>{{product.name}}</h5>
+	<label for="productAmount">Amount</label>
+		<select [(ngModel)]="selectedAmount" (ngModelChange)="handleAmountChange($event)" name="selectedAmount">
+			<option *ngFor="let productAmount of quantity" [ngValue]="productAmount">{{productAmount}}</option>
+		</select>
+	<h5>{{product.price}}</h5>
+	<button type="button" (click)="handleAddCart(product)">Add To Cart</button>
+	<button type="button" (click)="handleBack()">Go Back</button>
+</div>
