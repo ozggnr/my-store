@@ -11,7 +11,6 @@ import { FormsModule } from '@angular/forms';
 import { CardComponent } from './card/card.component';
 import { CardSuccessComponent } from './card-success/card-success.component';
 import { NavigationComponent } from './navigation/navigation.component';
-import { UserCardInfoComponent } from './user-card-info/user-card-info.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +20,7 @@ import { UserCardInfoComponent } from './user-card-info/user-card-info.component
     ProductDetailComponent,
     CardComponent,
     CardSuccessComponent,
-    NavigationComponent,
-    UserCardInfoComponent
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
