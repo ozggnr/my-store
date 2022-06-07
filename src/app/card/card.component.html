@@ -1,18 +1,28 @@
-<p>card works!</p>
 <div *ngIf="cardItemList.length === 0">
-	<div>No cart</div>
+	<div>Card is empty</div>
 </div>
 
 <div *ngFor="let cardItem of cardItemList" class="card-item">
+	<button type="click" (click)="handleRemoveItem($event, cardItem)">Remove Item</button>
 	<img [src]= "cardItem.product.url" class="card-item__image"/>
 	<h5>{{cardItem.product.name}}</h5>
-  	<form (ngSubmit)="handleForm(cardItem)">
 	<label for="productAmount">Amount</label>
-		<select [(ngModel)]="cardItem.quantity" (ngModelChange)="handleChangeQuantity($event)" name="selectedAmount">
+		<select [(ngModel)]="cardItem.quantity" (ngModelChange)="handleFormChange($event, cardItem)" name="selectedAmount">
 			<option *ngFor="let productAmount of quantity" [ngValue]="productAmount">{{productAmount}}</option>
 		</select>
-	</form>
 	<h5>{{cardItem.product.price}}</h5>
+</div>
+<div>{{totalAmount}}</div>
+<div>
+	<form (ngSubmit)="handleForm(user)" #userForm="ngForm">
+		<label>Full Name</label>
+		<input type="text" [(ngModel)]="user.userName" name="userName" required minlength="5" maxlength="20">
+		<label>Address</label>
+		<input type="text" [(ngModel)]="user.address" name="address" required minlength="5" maxlength="100">
+		<label>Card Number</label>
+		<input type="text" [(ngModel)]="user.cardNumber" name="cardNumber" required minlength="15" maxlength="15">
+		<button type="submit" [disabled]="userForm.form.invalid">Submit</button>
+	</form>
 </div>
 
 
