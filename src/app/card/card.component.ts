@@ -35,7 +35,6 @@ export class CardComponent implements OnInit {
 	}
 	getCartList(): void {
 		this.cardItemList = this.cardService.getCardList();
-		console.log(this.cardItemList);
 	}
 
 	handleFormChange(e: any, cardItem: CardItem): void {
