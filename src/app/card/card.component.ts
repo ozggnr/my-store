@@ -49,6 +49,7 @@ export class CardComponent implements OnInit {
 		this.user = user;
 		this.userService.assignUser(user, this.totalAmount);
 		this.router.navigateByUrl('/card/complete');
+		this.cardService.clearCard();
 	}
 	handleRemoveItem(e: any, cardItem: CardItem) {
 		this.cardService.removeFromCard(cardItem);
