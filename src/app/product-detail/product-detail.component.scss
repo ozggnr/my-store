@@ -1,0 +1,35 @@
+.product-detail {
+	margin: 2rem 0 0 4rem;
+	display: flex;
+	flex-direction: column;
+	&__image {
+		border-radius: 2rem;
+		width: 350px;
+		height: 500px;
+	}
+	&__back {
+		margin: 2rem 0;
+    	text-align: left;
+	}
+	&__content {
+		display: flex;
+		margin-left: 5rem;
+	}
+	&__desc {
+		text-align: left;
+		margin-top: 3rem;
+		margin-left: 10rem;
+	}
+	&__select {
+		display: flex;
+		flex-direction: column;
+		margin: 0.5rem;
+	}
+	&__select > * {
+		margin: 0.25rem;
+	}
+
+}
+#icon {
+	margin: 0.25rem;
+}

@@ -1,11 +1,19 @@
-<div>
-<img [src]= "product.url" class="card-item__image"/>
-	<h5>{{product.name}}</h5>
-	<label for="productAmount">Amount</label>
-		<select [(ngModel)]="selectedAmount" (ngModelChange)="handleAmountChange($event)" name="selectedAmount">
-			<option *ngFor="let productAmount of quantity" [ngValue]="productAmount">{{productAmount}}</option>
-		</select>
-	<h5>{{product.price}}</h5>
-	<button type="button" (click)="handleAddCart(product)">Add To Cart</button>
-	<button type="button" (click)="handleBack()">Go Back</button>
+<div class="product-detail">
+	<div class="product-detail__back">
+		<button type="button" (click)="handleBack()" class="btn-back"><i class="fas fa-angle-left" id="icon"></i>Go Back</button>
+	</div>
+	<div class="product-detail__content">
+		<div><img [src]="product.url" class="product-detail__image"/></div>
+		<div class="product-detail__desc">
+			<h1>{{product.name}}</h1>
+			<p>${{product.price}}</p>
+			<p>{{product.description}}</p>
+			<div class="product-detail__select">
+				<select [(ngModel)]="selectedAmount" (ngModelChange)="handleAmountChange($event)" name="selectedAmount">
+					<option *ngFor="let productAmount of quantity" [ngValue]="productAmount">{{productAmount}}</option>
+				</select>
+				<button type="button" (click)="handleAddCart(product)" class="btn-primary">Add To Cart</button>
+			</div>
+		</div>
+	</div>
 </div>
