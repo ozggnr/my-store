@@ -1,6 +1,15 @@
 .nav-bar {
 	height: 3rem;
-    background-color: cadetblue;
-    padding: 1rem;
+    background-color: #4b8f8c;
+    padding: 1.5rem;
 	display: flex;
+	justify-content: space-between;
+	color: white
+}
+a:link {
+	font-size: 2rem;
+	text-decoration: none;
+}
+a, a:visited {
+	color: inherit;
 }
