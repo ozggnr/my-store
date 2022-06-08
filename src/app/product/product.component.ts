@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CardItem } from '../models/CardItem';
 import { Product } from '../models/Product';
 import { CardService } from '../services/card.service';
@@ -22,16 +22,12 @@ export class ProductComponent implements OnInit {
 			url: '',
 			description: ''
 		}
-
 	}
 
 	ngOnInit(): void {
 
 	}
 	handleSubmit(product: Product): void {
-		console.log(product)
-		console.log(this.selectedAmount, this.cardItem)
-		// this.product = product
 		this.cardService.addToCart(product, this.selectedAmount)
 		alert('New item added to cart!')
 	}
