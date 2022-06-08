@@ -6,14 +6,14 @@ import { CardComponent } from './card/card.component';
 import { CardSuccessComponent } from './card-success/card-success.component';
 
 const routes: Routes = [
-  { path: '', component: ProductsComponent },
-  { path: 'products/:id', component: ProductDetailComponent },
-  { path: 'card', component: CardComponent },
-  { path: 'card/complete', component: CardSuccessComponent }
+	{ path: '', component: ProductsComponent },
+	{ path: 'products/:id', component: ProductDetailComponent },
+	{ path: 'card', component: CardComponent },
+	{ path: 'card/complete', component: CardSuccessComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+	imports: [RouterModule.forRoot(routes)],
+	exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
