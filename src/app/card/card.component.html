@@ -1,28 +1,35 @@
 <div *ngIf="cardItemList.length === 0">
-	<div>Card is empty</div>
+	<h2>Your card is empty</h2>
 </div>
 
-<div *ngFor="let cardItem of cardItemList" class="card-item">
-	<button type="click" (click)="handleRemoveItem($event, cardItem)">Remove Item</button>
-	<img [src]= "cardItem.product.url" class="card-item__image"/>
-	<h5>{{cardItem.product.name}}</h5>
-	<label for="productAmount">Amount</label>
-		<select [(ngModel)]="cardItem.quantity" (ngModelChange)="handleFormChange($event, cardItem)" name="selectedAmount">
-			<option *ngFor="let productAmount of quantity" [ngValue]="productAmount">{{productAmount}}</option>
-		</select>
-	<h5>{{cardItem.product.price}}</h5>
+<div class="card">
+	<div class="card__list">
+		<div *ngFor="let cardItem of cardItemList" class="card__list__item">
+			<img [src]= "cardItem.product.url" class="card__list__item-image"/>
+			<div class="card__list__item-desc">
+				<div class="label">{{cardItem.product.name}}</div>
+				<div class="label">${{cardItem.product.price}}</div>
+				<div class="card__list__item-select">
+					<div class="label">Amount</div>
+					<select [(ngModel)]="cardItem.quantity" (ngModelChange)="handleFormChange($event, cardItem)" name="selectedAmount">
+						<option *ngFor="let productAmount of quantity" [ngValue]="productAmount">{{productAmount}}</option>
+					</select>
+				</div>
+				<button type="click" (click)="handleRemoveItem($event, cardItem)" class="btn-delete">Remove Item</button>
+			</div>
+		</div>
+		<h3 *ngIf="cardItemList.length !== 0">Total Amount: ${{totalAmount}}</h3>
+	</div>
+	<div>
+		<form (ngSubmit)="handleForm(user)" #userForm="ngForm" class="card__userForm">
+			<label>Full Name</label>
+			<input type="text" [(ngModel)]="user.userName" name="userName" required minlength="3" maxlength="20" placeholder="(minimum 3 characters)">
+			<label>Address</label>
+			<input type="text" [(ngModel)]="user.address" name="address" required minlength="6" maxlength="100" placeholder="(minimum 6 characters)">
+			<label>Card Number</label>
+			<input type="text" [(ngModel)]="user.cardNumber" name="cardNumber" required minlength="16" maxlength="16" placeholder="(16-digit number)">
+			<button type="submit" [disabled]="userForm.form.invalid" class="btn-primary">Submit</button>
+		</form>
+	</div>
 </div>
-<div>{{totalAmount}}</div>
-<div>
-	<form (ngSubmit)="handleForm(user)" #userForm="ngForm">
-		<label>Full Name</label>
-		<input type="text" [(ngModel)]="user.userName" name="userName" required minlength="5" maxlength="20">
-		<label>Address</label>
-		<input type="text" [(ngModel)]="user.address" name="address" required minlength="5" maxlength="100">
-		<label>Card Number</label>
-		<input type="text" [(ngModel)]="user.cardNumber" name="cardNumber" required minlength="15" maxlength="15">
-		<button type="submit" [disabled]="userForm.form.invalid">Submit</button>
-	</form>
-</div>
-
 
