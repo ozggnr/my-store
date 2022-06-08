@@ -1,2 +1,10 @@
-<p>card-success works! {{user.userName}}</p>
-<button type="button" (click)="handleBack()">Go Back</button>
+<div class="cardSuccess">
+	<div>
+		<h2>Thank you! <p>{{user.userName}}</p></h2>
+		<p>Your order <b>${{user.totalAmount}}</b> is confirmed.</p>
+		<p>Please allow 1-3 business day(s) for shipping.</p>
+	</div>
+	<div class="cardSuccess__back">
+		<button type="button" (click)="handleBack()" class="btn-back"><i class="fas fa-angle-left" id="icon"></i>Back To Product List</button>
+	</div>
+</div>
