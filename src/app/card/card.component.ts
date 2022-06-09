@@ -14,7 +14,7 @@ export class CardComponent implements OnInit {
 	cardItemList: CardItem[] = [];
 	quantity = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 	totalAmount = 0;
-
+	valid = false;
 	constructor(
 		private cardService: CardService,
 		private router: Router,
@@ -54,5 +54,8 @@ export class CardComponent implements OnInit {
 		this.cardService.removeFromCard(cardItem);
 		this.ngOnInit();
 		alert('Item removed from cart!');
+	}
+	validate(e: any, cardNumber: any): void {
+		this.valid = Number(cardNumber) ? true : false;
 	}
 }
