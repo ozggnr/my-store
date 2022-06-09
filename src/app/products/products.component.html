@@ -1,4 +1,4 @@
 <div class="products">
-  <app-product class="products__pr" *ngFor="let item of products" [product]="item"></app-product>
+  <app-product class="products__pr" *ngFor="let item of products" [product]="item" (add)="add($event)"></app-product>
 </div>
 

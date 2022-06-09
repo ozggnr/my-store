@@ -38,6 +38,13 @@ export class CardService {
 		}
 		return this.cardIemList;
 	}
+	createCardItem(product: Product, productAmount: number) {
+		this.cardItem.id = product.id;
+		this.cardItem.product = product;
+		this.cardItem.quantity = productAmount;
+		this.cardItem.totalPrice = this.calculateProductPrice(product.price,productAmount);
+		return this.cardItem;
+	}
 	getCardList() {
 		return this.cardIemList;
 	}
