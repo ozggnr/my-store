@@ -28,6 +28,9 @@
 			<input type="text" [(ngModel)]="user.address" name="address" required minlength="6" maxlength="100" placeholder="(minimum 6 characters)">
 			<label>Card Number</label>
 			<input type="text" [(ngModel)]="user.cardNumber" (ngModelChange)="validate($event, user.cardNumber)" name="cardNumber" required minlength="16" maxlength="16" placeholder="(16-digit number)">
+			<div *ngIf="!valid && user.cardNumber">
+				Card Number should be numbers
+			</div>
 			<button type="submit" [disabled]="form.invalid || !valid" class="btn-primary">Submit</button>
 		</form>
 	</div>
